@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      AI SSB | Your Ultimate Digital SSB Interview Preparation Assistant
+    </title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://pub-8a052b298633493fb45a7a462812b1f6.r2.dev/ai%20ssb%20image%20of%20icon.png"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              orbitron: ["Orbitron", "sans-serif"],
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              defense: {
+                dark: "#0a0f1f",
+                darker: "#050914",
+                light: "#1a223f",
+                accent: "#3b82f6",
+                glow: "#60a5fa",
+                neon: "#00f3ff",
+                electric: "#8b5cf6",
+              },
+            },
+            animation: {
+              blob: "blob 10s infinite",
+              float: "float 6s ease-in-out infinite",
+              "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+              shimmer: "shimmer 3s infinite",
+              scanline: "scanline 8s linear infinite",
+              gradient: "gradient 8s ease infinite",
+            },
+            keyframes: {
+              blob: {
+                "0%": { transform: "translate(0px, 0px) scale(1)" },
+                "33%": { transform: "translate(50px, -60px) scale(1.2)" },
+                "66%": { transform: "translate(-40px, 30px) scale(0.8)" },
+                "100%": { transform: "translate(0px, 0px) scale(1)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-25px)" },
+              },
+              "pulse-glow": {
+                "0%, 100%": { boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)" },
+                "50%": {
+                  boxShadow:
+                    "0 0 40px rgba(59, 130, 246, 0.8), 0 0 60px rgba(96, 165, 250, 0.4)",
+                },
+              },
+              shimmer: {
+                "0%": { backgroundPosition: "-500px 0" },
+                "100%": { backgroundPosition: "500px 0" },
+              },
+              scanline: {
+                "0%": { transform: "translateY(-100%)" },
+                "100%": { transform: "translateY(400%)" },
+              },
+              gradient: {
+                "0%, 100%": { backgroundPosition: "0% 50%" },
+                "50%": { backgroundPosition: "100% 50%" },
+              },
+            },
+            backgroundImage: {
+              "radial-gradient":
+                "radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)",
+              "grid-pattern":
+                "linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      .hero-title {
+        font-family: "Orbitron", sans-serif;
+        text-shadow: 0 0 30px rgba(59, 130, 246, 0.7);
+      }
+
+      .glass-card {
+        background: rgba(26, 34, 63, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .glass-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(59, 130, 246, 0.5);
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+      }
+
+      .glass-nav {
+        background: rgba(10, 15, 31, 0.92);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .btn-glow {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .btn-glow:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+      }
+
+      .btn-glow::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      .btn-glow:hover::after {
+        left: 100%;
+      }
+
+      .typing-cursor::after {
+        content: "|";
+        animation: blink 1s step-start infinite;
+        color: #00f3ff;
+        font-weight: bold;
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* Phone Mockup CSS */
+      .phone-frame {
+        border: 10px solid #1e293b;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.6);
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        z-index: 1;
+      }
+
+      .phone-frame::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        background: linear-gradient(45deg, #3b82f6, #00f3ff, #8b5cf6, #3b82f6);
+        border-radius: 35px;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+
+      .phone-frame:hover::before {
+        opacity: 1;
+        animation: gradient 3s linear infinite;
+        background-size: 300% 300%;
+      }
+
+      .phone-frame:hover {
+        transform: translateY(-15px) scale(1.05);
+        border-color: transparent;
+      }
+
+      /* Scanline effect */
+      .scanline {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .scanline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(0, 243, 255, 0.6),
+          transparent
+        );
+        animation: scanline 8s linear infinite;
+        z-index: 10;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0f1f;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+        border-radius: 5px;
+      }
+
+      /* Background grid pattern */
+      .bg-grid {
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px
+          );
+        background-size: 40px 40px;
+      }
+
+      /* Particle container */
+      .particles-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .particle {
+        position: absolute;
+        background-color: rgba(59, 130, 246, 0.3);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      /* Feature icon styling */
+      .feature-icon {
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.2),
+          rgba(139, 92, 246, 0.2)
+        );
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s;
+      }
+
+      .feature-icon:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(59, 130, 246, 0.4),
+          rgba(139, 92, 246, 0.4)
+        );
+        transform: rotate(10deg) scale(1.1);
+      }
+
+      /* Marquee styling */
+      .marquee-track {
+        animation: marquee 25s linear infinite;
+      }
+
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Stats counter */
+      .stat-number {
+        font-family: "Orbitron", sans-serif;
+        background: linear-gradient(135deg, #3b82f6, #00f3ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Shimmer effect for download button */
+      .shimmer-effect {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .shimmer-effect::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        animation: shimmer 3s infinite;
+      }
+
+      /* Interactive background */
+      .interactive-bg {
+        background:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(59, 130, 246, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(139, 92, 246, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 80%,
+            rgba(0, 243, 255, 0.1) 0%,
+            transparent 50%
+          );
+      }
+    </style>
+  </head>
+  <body class="bg-defense-dark text-slate-200 font-inter overflow-x-hidden">
+    <!-- Animated background particles -->
+    <div class="particles-container" id="particles-container"></div>
+
+    <!-- Animated gradient backgrounds -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+      <div
+        class="absolute top-0 left-1/4 w-[800px] h-[800px] bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-full mix-blend-screen filter blur-[100px] animate-blob"
+      ></div>
+      <div
+        class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full mix-blend-screen filter blur-[80px] animate-blob animation-delay-3000"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-r from-blue-900/5 to-purple-900/5 rounded-full mix-blend-screen filter blur-[120px] animate-blob animation-delay-5000"
+      ></div>
+    </div>
+
+    <!-- Background grid pattern -->
+    <div class="fixed inset-0 pointer-events-none z-0 bg-grid opacity-30"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-white/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <div
+                class="absolute inset-0 bg-blue-500/30 blur-lg rounded-xl"
+              ></div>
+              <img
+                src="https://pub-8a052b298633493fb45a7a462812b1f6.r2.dev/ai%20ssb%20image%20of%20icon.png"
+                alt="Logo"
+                class="w-10 h-10 rounded-lg shadow-lg shadow-blue-500/30 relative z-10"
+              />
+            </div>
+            <span
+              class="font-extrabold text-2xl text-white tracking-tight font-orbitron"
+              >AI SSB</span
+            >
+          </div>
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              href="#features"
+              class="text-sm font-medium hover:text-blue-400 transition relative group"
+            >
+              Features
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+            <a
+              href="#screens"
+              class="text-sm font-medium hover:text-blue-400 transition relative group"
+            >
+              App Look
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+            <a
+              href="#stats"
+              class="text-sm font-medium hover:text-blue-400 transition relative group"
+            >
+              Impact
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 group-hover:w-full transition-all duration-300"
+              ></span>
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN"
+              target="_blank"
+              class="btn-glow text-white px-6 py-3 rounded-full text-sm font-bold transition-all"
+            >
+              <i class="fa-solid fa-download mr-2"></i> Download App
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button id="mobile-menu-button" class="md:hidden text-white p-2">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div
+          id="mobile-menu"
+          class="md:hidden hidden pb-4 border-t border-white/10 mt-2"
+        >
+          <div class="flex flex-col gap-4 pt-4">
+            <a
+              href="#features"
+              class="text-sm font-medium hover:text-blue-400 transition"
+              >Features</a
+            >
+            <a
+              href="#screens"
+              class="text-sm font-medium hover:text-blue-400 transition"
+              >App Look</a
+            >
+            <a
+              href="#stats"
+              class="text-sm font-medium hover:text-blue-400 transition"
+              >Impact</a
+            >
+            <a
+              href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN"
+              target="_blank"
+              class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-bold transition shadow-lg shadow-blue-500/30 w-fit"
+            >
+              Download App
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative pt-44 pb-24 lg:pt-56 lg:pb-40 z-10 text-center px-4 interactive-bg"
+    >
+      <div class="max-w-6xl mx-auto">
+        <div
+          data-aos="fade-down"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 text-yellow-300 text-sm font-bold mb-8 animate-pulse-glow"
+        >
+          <i class="fa-solid fa-star text-yellow-300"></i> 4.7 ★ Rated on Play
+          Store
+          <span class="ml-2 px-2 py-0.5 bg-yellow-500/30 rounded-full text-xs"
+            >1800+ Downloads</span
+          >
+        </div>
+
+        <h1
+          data-aos="zoom-in"
+          class="hero-title text-6xl md:text-8xl font-black text-white mb-6 leading-tight tracking-tight"
+        >
+          Your
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300"
+            >Digital</span
+          ><br />
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500"
+            >SSB Mentor</span
+          >
+        </h1>
+
+        <p
+          data-aos="fade-up"
+          class="text-2xl text-slate-300 max-w-3xl mx-auto mb-12"
+        >
+          Targeting
+          <span
+            id="typewriter"
+            class="text-white font-bold typing-cursor"
+          ></span
+          >?<br />
+          Get AI-powered feedback for SSB, written exam prep, daily defense updates, and seamless stay
+          assistance near your SSB center.
+        </p>
+
+        <div
+          data-aos="fade-up"
+          class="flex flex-col sm:flex-row justify-center items-center gap-6"
+        >
+          <a
+            href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN"
+            target="_blank"
+            class="btn-glow flex items-center justify-center gap-3 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_40px_rgba(59,130,246,0.5)] shimmer-effect"
+          >
+            <i class="fa-brands fa-google-play text-2xl"></i>
+            <div class="text-left">
+              <div class="text-sm font-normal">Install on</div>
+              <div>Google Play</div>
+            </div>
+          </a>
+
+          <a
+            href="#features"
+            class="flex items-center justify-center gap-3 bg-transparent border border-slate-700 hover:border-blue-500 text-white px-8 py-5 rounded-xl font-bold text-lg hover:bg-slate-900/50 transition-all"
+          >
+            <i class="fa-solid fa-play-circle"></i>
+            Know More
+          </a>
+        </div>
+
+        <!-- Stats Section -->
+        <div
+          id="stats"
+          class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-4xl mx-auto"
+          data-aos="fade-up"
+        >
+          <div class="glass-card p-6 rounded-2xl text-center">
+            <div class="stat-number text-4xl font-bold mb-2" id="counter1">
+              0
+            </div>
+            <div class="text-slate-400 text-sm">Active Users</div>
+          </div>
+          <div class="glass-card p-6 rounded-2xl text-center">
+            <div class="stat-number text-4xl font-bold mb-2" id="counter2">
+              0
+            </div>
+            <div class="text-slate-400 text-sm">Practice Tests</div>
+          </div>
+          <div class="glass-card p-6 rounded-2xl text-center">
+            <div class="stat-number text-4xl font-bold mb-2" id="counter3">
+              0
+            </div>
+            <div class="text-slate-400 text-sm">AI Assessments</div>
+          </div>
+          <div class="glass-card p-6 rounded-2xl text-center">
+            <div class="stat-number text-4xl font-bold mb-2" id="counter4">
+              0
+            </div>
+            <div class="text-slate-400 text-sm">Mock Test</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 relative z-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            data-aos="fade-up"
+            class="text-4xl md:text-5xl font-bold text-white mb-4 font-orbitron"
+          >
+            Powerful
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"
+              >Features</span
+            >
+          </h2>
+          <p
+            data-aos="fade-up"
+            class="text-xl text-slate-400 max-w-3xl mx-auto"
+          >
+            Everything you need to ace your SSB interview in one intelligent
+            platform
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- AI Feedback Feature -->
+          <div
+            data-aos="fade-up"
+            class="glass-card p-8 rounded-2xl group hover:border-blue-500/50 transition-all scanline"
+          >
+            <div class="feature-icon w-16 h-16 mb-6 text-blue-400 text-2xl">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              AI-Powered Feedback
+            </h3>
+            <p class="text-slate-300 mb-6">
+              Get instant AI feedback on all SSB psychology tests including
+              <span class="text-blue-300 font-semibold">TAT</span>,
+              <span class="text-blue-300 font-semibold">WAT</span>,
+              <span class="text-blue-300 font-semibold">SRT</span>,
+              <span class="text-blue-300 font-semibold">Self Description</span>,
+              <span class="text-blue-300 font-semibold">Interview</span>, and
+              <span class="text-blue-300 font-semibold">PPDT</span>. Our
+              advanced AI analyzes your responses and provides actionable
+              insights.
+            </p>
+          </div>
+
+          <!-- Performance Tracking -->
+          <div
+            data-aos="fade-up"
+            data-aos-delay="100"
+            class="glass-card p-8 rounded-2xl group hover:border-green-500/50 transition-all scanline"
+          >
+            <div class="feature-icon w-16 h-16 mb-6 text-green-400 text-2xl">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              Performance Tracking
+            </h3>
+            <p class="text-slate-300 mb-6">
+              Monitor your progress with detailed analytics and performance
+              metrics. Track improvements across all test types, identify
+              strengths & weaknesses, and get personalized recommendations to
+              enhance your SSB performance.
+            </p>
+          </div>
+
+          <!-- Written Exam Prep -->
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            class="glass-card p-8 rounded-2xl group hover:border-purple-500/50 transition-all scanline"
+          >
+            <div class="feature-icon w-16 h-16 mb-6 text-purple-400 text-2xl">
+              <i class="fa-solid fa-file-pen"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              Written Exam Preparation
+            </h3>
+            <p class="text-slate-300 mb-6">
+              Comprehensive preparation for all defense entry written exams
+              including <span class="text-purple-300 font-semibold">NDA</span>,
+              <span class="text-purple-300 font-semibold">CDS</span>,
+              <span class="text-purple-300 font-semibold">AFCAT</span>, and more. Get topic-wise study material, practice papers,
+              and previous year question papers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Additional feature row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+          <!-- Daily Current Affairs -->
+          <div
+            data-aos="fade-up"
+            data-aos-delay="300"
+            class="glass-card p-8 rounded-2xl group hover:border-cyan-500/50 transition-all"
+          >
+            <div class="flex items-start gap-6">
+              <div
+                class="feature-icon w-14 h-14 text-cyan-400 text-xl flex-shrink-0"
+              >
+                <i class="fa-solid fa-newspaper"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-3">
+                  Daily Current Affairs
+                </h3>
+                <p class="text-slate-300">
+                  Stay updated with curated defense news, international affairs,
+                  and GD topics crucial for your interview. Personalized content
+                  based on your entry type with daily updates and important
+                  events.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nearby SSB Stay -->
+          <div
+            data-aos="fade-up"
+            data-aos-delay="400"
+            class="glass-card p-8 rounded-2xl group hover:border-orange-500/50 transition-all"
+          >
+            <div class="flex items-start gap-6">
+              <div
+                class="feature-icon w-14 h-14 text-orange-400 text-xl flex-shrink-0"
+              >
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white mb-3">
+                  Nearby SSB Stay Finder
+                </h3>
+                <p class="text-slate-300">
+                  Traveling for your SSB? We help you find affordable, verified,
+                  and safe accommodation near every selection board center. Get
+                  real-time availability, pricing, and booking options for
+                  hassle-free stay arrangements.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Screens Section -->
+    <section
+      id="screens"
+      class="py-24 bg-slate-900/30 relative overflow-hidden z-10"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent via-defense-dark/50 to-defense-dark"
+      ></div>
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
+        <div class="text-center mb-16">
+          <h2
+            data-aos="fade-up"
+            class="text-4xl md:text-5xl font-bold text-white mb-4 font-orbitron"
+          >
+            Inside
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500"
+              >The App</span
+            >
+          </h2>
+          <p data-aos="fade-up" class="text-xl text-slate-400">
+            A powerful, intuitive interface designed for focus and exceptional
+            results
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 items-center"
+        >
+          <div
+            data-aos="fade-up"
+            data-aos-delay="0"
+            class="relative group flex flex-col items-center"
+          >
+            <div class="phone-frame">
+              <img
+                src="https://pub-6e4dfaf8351346bcbc3a579080ae90d0.r2.dev/ai%20assessor.jpg"
+                alt="AI Assessor"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+            <div class="mt-6 text-center">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-bold mb-2"
+              >
+                <i class="fa-solid fa-bolt"></i> AI-Powered
+              </div>
+              <h4 class="text-white font-bold text-xl mb-1">AI Assessor</h4>
+              <p class="text-sm text-slate-400">
+                Instant feedback on responses
+              </p>
+            </div>
+          </div>
+
+          <div
+            data-aos="fade-up"
+            data-aos-delay="150"
+            class="relative group flex flex-col items-center md:mt-16"
+          >
+            <div class="phone-frame">
+              <img
+                src="https://pub-6e4dfaf8351346bcbc3a579080ae90d0.r2.dev/practice.jpg"
+                alt="Practice Tests"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+            <div class="mt-6 text-center">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-xs font-bold mb-2"
+              >
+                <i class="fa-solid fa-dumbbell"></i> Practice
+              </div>
+              <h4 class="text-white font-bold text-xl mb-1">Practice Zone</h4>
+              <p class="text-sm text-slate-400">
+                WAT, TAT, SRT & Psychology Tests
+              </p>
+            </div>
+          </div>
+
+          <div
+            data-aos="fade-up"
+            data-aos-delay="300"
+            class="relative group flex flex-col items-center"
+          >
+            <div class="phone-frame">
+              <img
+                src="https://pub-6e4dfaf8351346bcbc3a579080ae90d0.r2.dev/ppdt.jpg"
+                alt="PPDT Screen"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+            <div class="mt-6 text-center">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-300 text-xs font-bold mb-2"
+              >
+                <i class="fa-solid fa-image"></i> PPDT
+              </div>
+              <h4 class="text-white font-bold text-xl mb-1">PPDT Tool</h4>
+              <p class="text-sm text-slate-400">
+                Image perception & story writing
+              </p>
+            </div>
+          </div>
+
+          <div
+            data-aos="fade-up"
+            data-aos-delay="450"
+            class="relative group flex flex-col items-center md:mt-16"
+          >
+            <div class="phone-frame">
+              <img
+                src="https://pub-6e4dfaf8351346bcbc3a579080ae90d0.r2.dev/home.jpg"
+                alt="Home Screen"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+            <div class="mt-6 text-center">
+              <div
+                class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-xs font-bold mb-2"
+              >
+                <i class="fa-solid fa-sliders"></i> Informative
+              </div>
+              <h4 class="text-white font-bold text-xl mb-1">Home Screen</h4>
+              <p class="text-sm text-slate-400">Daily current affair</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <div
+      class="bg-gradient-to-r from-blue-900/40 to-purple-900/40 py-6 overflow-hidden transform -skew-y-2 my-10 relative z-20 border-y border-white/10"
+    >
+      <div
+        class="flex gap-12 whitespace-nowrap marquee-track text-white font-bold text-lg uppercase font-orbitron"
+      >
+        <span class="flex items-center gap-3"
+          ><i class="fa-solid fa-brain text-blue-400"></i> Word Association
+          Test</span
+        >
+        <span class="flex items-center gap-3"
+          ><i class="fa-solid fa-bolt text-yellow-400"></i> Situation Reaction
+          Test</span
+        >
+        <span class="flex items-center gap-3"
+          ><i class="fa-solid fa-image text-purple-400"></i> Thematic
+          Apperception</span
+        >
+        <span class="flex items-center gap-3"
+          ><i class="fa-solid fa-calculator text-green-400"></i> OIR Test</span
+        >
+        <span class="flex items-center gap-3"
+          ><i class="fa-solid fa-person-running text-red-400"></i> Ground Tasks
+          (GTO)</span
+        >
+        <span class="flex items-center gap-3"
+          ><i class="fa-solid fa-user-pen text-cyan-400"></i> Self
+          Description</span
+        >
+        <span class="flex items-center gap-3"
+          ><i class="fa-solid fa-comments text-orange-400"></i> Group
+          Discussion</span
+        >
+        <span class="flex items-center gap-3"
+          ><i class="fa-solid fa-handshake text-pink-400"></i> Personal
+          Interview</span
+        >
+        <span class="flex items-center gap-3"
+          ><i class="fa-solid fa-eye text-indigo-400"></i> PPDT</span
+        >
+        <span class="flex items-center gap-3"
+          ><i class="fa-solid fa-bullhorn text-teal-400"></i> Lecturette</span
+        >
+        <span class="flex items-center gap-3"
+          ><i class="fa-solid fa-shield text-lime-400"></i> CPSS</span
+        >
+      </div>
+    </div>
+
+    <!-- Testimonials/CTA Section -->
+    <section class="py-24 relative z-10">
+      <div class="max-w-6xl mx-auto px-4">
+        <div
+          class="glass-card p-10 md:p-16 rounded-3xl text-center relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full -translate-y-1/2 translate-x-1/2"
+          ></div>
+          <div
+            class="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/10 rounded-full translate-y-1/2 -translate-x-1/2"
+          ></div>
+
+          <div class="relative z-10">
+            <h2 class="text-4xl font-bold text-white mb-6 font-orbitron">
+              Time to
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"
+                >Secure Your Recommendation</span
+              >
+            </h2>
+            <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-10">
+              The future of defence prep is here. Your digital mentor awaits.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN"
+                target="_blank"
+                class="btn-glow flex items-center justify-center gap-3 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all transform hover:scale-105"
+              >
+                <i class="fa-brands fa-google-play text-2xl"></i>
+                Download Now
+              </a>
+            </div>
+
+            <div
+              class="mt-12 flex flex-wrap justify-center gap-6 text-slate-400"
+            >
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-green-400"></i>
+                <span>Anytime Anywhere Acess</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-green-400"></i>
+                <span>Daily Current Affairs for free</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-green-400"></i>
+                <span>Instant Feedback</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-green-400"></i>
+                <span>Nearby SSB Stay Info</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-check text-green-400"></i>
+                <span>24/7 Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-defense-darker border-t border-slate-800/50 py-16 relative z-10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-10 items-center">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="relative">
+                <div
+                  class="absolute inset-0 bg-blue-500/30 blur-lg rounded-lg"
+                ></div>
+                <img
+                  src="https://pub-8a052b298633493fb45a7a462812b1f6.r2.dev/ai%20ssb%20image%20of%20icon.png"
+                  alt="Logo"
+                  class="w-10 h-10 rounded-lg relative z-10"
+                />
+              </div>
+              <span class="font-bold text-2xl text-white font-orbitron"
+                >AI SSB</span
+              >
+            </div>
+            <p class="text-slate-400 text-sm max-w-sm mb-6">
+              The most advanced AI-powered SSB interview preparation platform.
+              Affordable, intelligent, and always by your side.
+            </p>
+            <div class="flex gap-4 text-slate-500">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-500 hover:text-white transition"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-blue-700 hover:text-white transition"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-red-500 hover:text-white transition"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <h4 class="text-white font-bold mb-4">Quick Links</h4>
+              <div class="flex flex-col gap-3 text-sm text-slate-400">
+                <a href="#features" class="hover:text-blue-400 transition"
+                  >Features</a
+                >
+                <a href="#screens" class="hover:text-blue-400 transition"
+                  >App Preview</a
+                >
+                <a href="#stats" class="hover:text-blue-400 transition"
+                  >Success Metrics</a
+                >
+                <a href="#" class="hover:text-blue-400 transition"
+                  >Blog & Tips</a
+                >
+              </div>
+            </div>
+            <div>
+              <h4 class="text-white font-bold mb-4">Legal</h4>
+              <div class="flex flex-col gap-3 text-sm text-slate-400">
+                <a href="privacy.html" class="hover:text-blue-400"
+                  >Privacy Policy</a
+                >
+                <a href="terms.html" class="hover:text-blue-400"
+                  >Terms & Conditions</a
+                >
+                <a href="contact.html" class="hover:text-blue-400">Contact Us</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center md:text-right">
+            <p class="text-white font-bold mb-4 text-lg">
+              Start your SSB journey today
+            </p>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN"
+              target="_blank"
+              class="inline-flex items-center gap-3 bg-gradient-to-r from-slate-800 to-slate-900 hover:from-blue-900 hover:to-blue-800 text-white px-6 py-4 rounded-xl border border-slate-700 transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+            >
+              <i class="fa-brands fa-google-play text-2xl"></i>
+              <div class="text-left">
+                <div class="text-xs uppercase text-slate-400">Available on</div>
+                <div class="text-sm font-bold">Google Play</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="mt-12 pt-8 border-t border-slate-800/50 text-center text-slate-500 text-sm"
+        >
+          <p>
+            &copy; 2026 AI SSB. All rights reserved. Dedicated to the future officers of India.
+          </p>
+          <p class="mt-2 text-xs">
+            This app is not officially associated with the Indian Armed Forces.
+            
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+        mirror: false,
+      });
+
+      // Typewriter Logic
+      const words = [
+        "NDA SSB",
+        "CDS SSB",
+        "AFCAT SSB",
+        "SSC Tech SSB",
+        "TES Entry",
+        "Navy 10+2 Btech",
+        "JAG",
+        "TA",
+        "ACC"
+      ];
+      let i = 0;
+      function typeWriter() {
+        const heading = document.getElementById("typewriter");
+        let word = words[i];
+        let j = 0;
+        let isDeleting = false;
+        function loop() {
+          heading.innerHTML = word.substring(0, j);
+          if (!isDeleting && j < word.length) {
+            j++;
+            setTimeout(loop, 100);
+          } else if (isDeleting && j > 0) {
+            j--;
+            setTimeout(loop, 50);
+          } else {
+            isDeleting = !isDeleting;
+            if (!isDeleting) {
+              i = (i + 1) % words.length;
+              word = words[i];
+              setTimeout(loop, 1000);
+            } else {
+              setTimeout(loop, 2000);
+            }
+          }
+        }
+        loop();
+      }
+
+      // Counter animation
+      function animateCounters() {
+        const counters = document.querySelectorAll(".stat-number");
+        const speed = 200;
+
+        counters.forEach((counter) => {
+          const target =
+            +counter.getAttribute("data-target") ||
+            (counter.id === "counter1"
+              ? 1800
+              : counter.id === "counter2"
+                ? 1500
+                : counter.id === "counter3"
+                  ? 42000
+                  : counter.id === "counter4"
+                    ? 100
+                    : 0);
+
+          const updateCount = () => {
+            const count = +counter.innerText.replace(/,/g, "");
+            const increment = target / speed;
+
+            if (count < target) {
+              counter.innerText = Math.ceil(count + increment).toLocaleString();
+              setTimeout(updateCount, 1);
+            } else {
+              counter.innerText = target.toLocaleString();
+            }
+          };
+
+          updateCount();
+        });
+      }
+
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Particle background effect
+      function createParticles() {
+        const container = document.getElementById("particles-container");
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          // Random size and position
+          const size = Math.random() * 4 + 1;
+          const posX = Math.random() * 100;
+          const posY = Math.random() * 100;
+
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${posX}%`;
+          particle.style.top = `${posY}%`;
+
+          // Random animation
+          const duration = Math.random() * 20 + 10;
+          const delay = Math.random() * 5;
+
+          particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+
+          container.appendChild(particle);
+        }
+      }
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Initialize when DOM is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        typeWriter();
+        createParticles();
+
+        // Trigger counter animation when stats section is in view
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateCounters();
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
+
+        const statsSection = document.getElementById("stats");
+        if (statsSection) {
+          observer.observe(statsSection);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - AI SSB | Your Digital SSB Mentor</title>
+    
+    <link rel="icon" type="image/png" href="https://pub-8a052b298633493fb45a7a462812b1f6.r2.dev/ai%20ssb%20image%20of%20icon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        defense: {
+                            dark: '#0a0f1f',
+                            darker: '#050914',
+                            light: '#1a223f',
+                            accent: '#3b82f6',
+                            glow: '#60a5fa',
+                            neon: '#00f3ff',
+                            electric: '#8b5cf6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.7);
+        }
+        
+        .glass-card {
+            background: rgba(26, 34, 63, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .glass-nav {
+            background: rgba(10, 15, 31, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .btn-glow {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s;
+        }
+        
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0a0f1f; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+            border-radius: 5px;
+        }
+        
+        .interactive-bg {
+            background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(0, 243, 255, 0.1) 0%, transparent 50%);
+        }
+        
+        .terms-section {
+            scroll-margin-top: 120px;
+        }
+        
+        .terms-nav-link {
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .terms-nav-link::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: #3b82f6;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .terms-nav-link.active::before {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-defense-dark text-slate-200 font-inter">
+    <nav class="fixed w-full z-50 glass-nav border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-blue-500/30 blur-lg rounded-xl"></div>
+                        <img src="https://pub-8a052b298633493fb45a7a462812b1f6.r2.dev/ai%20ssb%20image%20of%20icon.png" alt="Logo" class="w-10 h-10 rounded-lg shadow-lg shadow-blue-500/30 relative z-10">
+                    </div>
+                    <a href="index.html" class="font-extrabold text-2xl text-white tracking-tight font-orbitron">AI SSB</a>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-sm font-medium hover:text-blue-400 transition">Home</a>
+                    <a href="index.html#features" class="text-sm font-medium hover:text-blue-400 transition">Features</a>
+                    <a href="contact.html" class="text-sm font-medium hover:text-blue-400 transition">Contact</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN" target="_blank" class="btn-glow text-white px-6 py-3 rounded-full text-sm font-bold transition-all">
+                        <i class="fa-solid fa-download mr-2"></i> Download App
+                    </a>
+                </div>
+                
+                <button id="mobile-menu-button" class="md:hidden text-white p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-white/10 mt-2">
+                <div class="flex flex-col gap-4 pt-4">
+                    <a href="index.html" class="text-sm font-medium hover:text-blue-400 transition">Home</a>
+                    <a href="index.html#features" class="text-sm font-medium hover:text-blue-400 transition">Features</a>
+                    <a href="contact.html" class="text-sm font-medium hover:text-blue-400 transition">Contact</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-bold transition shadow-lg shadow-blue-500/30 w-fit">
+                        Download App
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-20 lg:pt-52 lg:pb-32 relative interactive-bg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="hero-title text-5xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight">
+                    Terms & <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Conditions</span>
+                </h1>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto mb-10">
+                    Please read these terms carefully before using AI SSB. By accessing or using our app, you agree to be bound by these terms.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-10 pb-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/4">
+                    <div class="glass-card p-6 rounded-2xl sticky top-32">
+                        <h3 class="text-xl font-bold text-white mb-4 font-orbitron">Contents</h3>
+                        <nav class="space-y-2">
+                            <a href="#acceptance" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">1. Acceptance of Terms</a>
+                            <a href="#description" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">2. Service Description</a>
+                            <a href="#account" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">3. Account Registration</a>
+                            <a href="#subscriptions" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">4. Subscriptions</a>
+                            <a href="#intellectual" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">5. Intellectual Property</a>
+                            <a href="#user-content" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">6. User Content</a>
+                            <a href="#privacy" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">7. Privacy & Data</a>
+                            <a href="#disclaimer" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">8. Disclaimer</a>
+                            <a href="#termination" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">9. Termination</a>
+                            <a href="#changes" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">10. Changes to Terms</a>
+                            <a href="#governing" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">11. Governing Law</a>
+                            <a href="#contact" class="block terms-nav-link text-slate-300 hover:text-blue-400 transition py-2">12. Contact Information</a>
+                        </nav>
+                    </div>
+                </div>
+                
+                <div class="lg:w-3/4">
+                    <div class="glass-card p-8 rounded-2xl">
+                        <div class="mb-8 p-6 rounded-xl bg-blue-500/10 border border-blue-500/20">
+                            <p class="text-slate-300">
+                                <strong>Important Notice:</strong> These Terms & Conditions govern your use of the AI SSB application ("App") and services. By downloading, installing, or using the App, you acknowledge that you have read, understood, and agree to be bound by these terms.
+                            </p>
+                        </div>
+                        
+                        <div id="acceptance" class="terms-section mb-12">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">1. Acceptance of Terms</h2>
+                            <p class="text-slate-300 mb-4">
+                                By accessing or using AI SSB, you agree to comply with and be bound by these Terms & Conditions. If you do not agree with any part of these terms, you must not use our App or services.
+                            </p>
+                            <p class="text-slate-300">
+                                These terms apply to all users of the App, including visitors, registered users, and subscribers. You represent that you are at least 13 years of age or have parental consent to use the App.
+                            </p>
+                        </div>
+                        
+                        <div id="description" class="terms-section mb-12">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">2. Service Description</h2>
+                            <p class="text-slate-300 mb-4">
+                                AI SSB is an educational application designed to assist defense aspirants in preparing for SSB interviews through:
+                            </p>
+                            <ul class="list-disc pl-6 text-slate-300 space-y-2 mb-4">
+                                <li>AI-powered feedback on SSB psychology tests (TAT, WAT, SRT, SD, PPDT, Interview)</li>
+                                <li>Written exam preparation materials for NDA, CDS, AFCAT, etc.</li>
+                                <li>Daily current affairs and defense news updates</li>
+                                <li>Performance tracking and analytics</li>
+                                <li>Information about nearby SSB stay accommodations</li>
+                            </ul>
+                            <p class="text-slate-300">
+                                <strong>Important:</strong> AI SSB is not officially associated with the Indian Armed Forces, UPSC, or any government selection board. Our services are for educational purposes only and do not guarantee selection.
+                            </p>
+                        </div>
+                        
+                        <div id="account" class="terms-section mb-12">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">3. Account Registration</h2>
+                            <p class="text-slate-300 mb-4">
+                                To access certain features, you may need to create an account. You agree to:
+                            </p>
+                            <ul class="list-disc pl-6 text-slate-300 space-y-2 mb-4">
+                                <li>Provide accurate, current, and complete information during registration</li>
+                                <li>Maintain and promptly update your account information</li>
+                                <li>Maintain the security of your password and accept all risks of unauthorized access</li>
+                                <li>Notify us immediately of any unauthorized use of your account</li>
+                                <li>Be responsible for all activities that occur under your account</li>
+                            </ul>
+                            <p class="text-slate-300">
+                                We reserve the right to disable any account at our discretion if we believe you have violated these terms.
+                            </p>
+                        </div>
+                        
+                        <div id="subscriptions" class="terms-section mb-12">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">4. Subscriptions & Payments</h2>
+                            <p class="text-slate-300 mb-4">
+                                AI SSB offers both free and premium subscription plans:
+                            </p>
+                            <ul class="list-disc pl-6 text-slate-300 space-y-2 mb-4">
+                                <li><strong>Free Tier:</strong> Access to basic features including limited practice tests and daily current affairs</li>
+                                <li><strong>Premium Tier:</strong> Full access to all features including unlimited AI feedback, detailed analytics, and advanced content</li>
+                            </ul>
+                            <p class="text-slate-300 mb-4">
+                                Subscription payments are processed securely. By purchasing a subscription, you agree to:
+                            </p>
+                            <ul class="list-disc pl-6 text-slate-300 space-y-2 mb-4">
+                                <li>Pay all applicable fees and taxes</li>
+                            </ul>
+                            <p class="text-slate-300">
+                                <strong>Cancellation & Refunds:</strong> You may cancel your subscription at any time. We do not provide refunds for partial subscription periods.
+                            </p>
+                        </div>
+                        
+                        <div id="intellectual" class="terms-section mb-12">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">5. Intellectual Property</h2>
+                            <p class="text-slate-300 mb-4">
+                                All content, features, and functionality of AI SSB, including but not limited to:
+                            </p>
+                            <ul class="list-disc pl-6 text-slate-300 space-y-2 mb-4">
+                                <li>Software code, algorithms, and AI models</li>
+                                <li>Practice questions, test materials, and educational content</li>
+                                <li>Graphics, logos, designs, and interface elements</li>
+                                <li>Documentation and instructional materials</li>
+                            </ul>
+                            <p class="text-slate-300 mb-4">
+                                are owned by AI SSB and are protected by copyright, trademark, and other intellectual property laws.
+                            </p>
+                            <p class="text-slate-300">
+                                You are granted a limited, non-exclusive, non-transferable license to use the App for personal, non-commercial purposes only. You may not reproduce, distribute, modify, or create derivative works without our explicit permission.
+                            </p>
+                        </div>
+                        
+                        <div id="user-content" class="terms-section mb-12">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">6. User Content</h2>
+                            <p class="text-slate-300 mb-4">
+                                When you submit responses, practice answers, or other content ("User Content") through the App:
+                            </p>
+                            <ul class="list-disc pl-6 text-slate-300 space-y-2 mb-4">
+                                <li>You retain ownership of your User Content</li>
+                                <li>You grant us a worldwide, royalty-free license to use, analyze, and process your User Content to provide and improve our services</li>
+                                <li>You represent that you have the right to submit the User Content and that it does not violate any third-party rights</li>
+                                <li>You agree not to submit harmful, offensive, or illegal content</li>
+                            </ul>
+                            <p class="text-slate-300">
+                                We may remove any User Content that violates these terms or is otherwise objectionable at our sole discretion.
+                            </p>
+                        </div>
+                        
+                        <div id="privacy" class="terms-section mb-12">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">7. Privacy & Data Protection</h2>
+                            <p class="text-slate-300 mb-4">
+                                Your privacy is important to us. Our <a href="privacy.html" class="text-blue-400 hover:text-blue-300">Privacy Policy</a> explains how we collect, use, and protect your personal information. By using AI SSB, you consent to our data practices as described in the Privacy Policy.
+                            </p>
+                            <p class="text-slate-300">
+                                We implement reasonable security measures to protect your data to ensure the best possible experience.
+                            </p>
+                        </div>
+                        
+                        <div id="disclaimer" class="terms-section mb-12">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">8. Disclaimer of Warranties</h2>
+                            <!-- <div class="p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20 mb-4">
+                                <p class="text-yellow-300 font-medium mb-2">Important Disclaimer</p>
+                                <p class="text-slate-300">
+                                    AI SSB IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+                                </p>
+                            </div> -->
+                            <p class="text-slate-300 mb-4">
+                                We do not guarantee the recommendation of any candidate, as it largely depends on how sincerely the student prepares. We have provided you with the material and AI tools, but success ultimately depends on how well students follow the guidance and utilize these resources.
+                            </p>
+                          
+                        </div>
+                        
+                        <div id="termination" class="terms-section mb-12">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">9. Termination</h2>
+                            <p class="text-slate-300 mb-4">
+                                We may terminate or suspend your account and access to the App immediately, without prior notice or liability, for any reason, including if you breach these Terms.
+                            </p>
+                            <p class="text-slate-300">
+                                Upon termination, your right to use the App will immediately cease. All provisions of these Terms which by their nature should survive termination shall survive, including ownership provisions, warranty disclaimers, and limitations of liability.
+                            </p>
+                        </div>
+                        
+                        <div id="changes" class="terms-section mb-12">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">10. Changes to Terms</h2>
+                            <p class="text-slate-300 mb-4">
+                                We reserve the right to modify or change these Terms and Conditions at any time without prior notice. It is the sole responsibility of the candidate to check this page regularly to verify if the Terms & Conditions have changed. Your continued use of the App implies your agreement to the updated terms.
+                            </p>
+                            <p class="text-slate-300">
+                                By continuing to access or use our App after revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you must stop using the App.
+                            </p>
+                        </div>
+                        
+                        <div id="governing" class="terms-section mb-12">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">11. Governing Law</h2>
+                            <p class="text-slate-300 mb-4">
+                                These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions.
+                            </p>
+                        </div>
+                        
+                        <div id="contact" class="terms-section">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-orbitron">12. Contact Information</h2>
+                            <p class="text-slate-300 mb-4">
+                                If you have any questions about these Terms & Conditions, please contact us:
+                            </p>
+                            <div class="p-6 rounded-xl bg-slate-800/30">
+                                <p class="text-slate-300 mb-2"><strong>Email:</strong> <a href="mailto:softtechkingcustomer@gmail.com" class="text-blue-400 hover:text-blue-300">softtechkingcustomer@gmail.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12 p-6 rounded-xl bg-slate-800/30 border border-slate-700">
+                            <p class="text-slate-300 text-center">
+                                By using AI SSB, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-defense-darker border-t border-slate-800/50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-10 items-center">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-blue-500/30 blur-lg rounded-lg"></div>
+                            <img src="https://pub-8a052b298633493fb45a7a462812b1f6.r2.dev/ai%20ssb%20image%20of%20icon.png" alt="Logo" class="w-10 h-10 rounded-lg relative z-10">
+                        </div>
+                        <span class="font-bold text-2xl text-white font-orbitron">AI SSB</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-sm mb-6">
+                        The most advanced AI-powered SSB interview preparation platform. Affordable, intelligent, and always by your side.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                        <div class="flex flex-col gap-3 text-sm text-slate-400">
+                            <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+                            <a href="index.html#features" class="hover:text-blue-400 transition">Features</a>
+                            <a href="contact.html" class="hover:text-blue-400 transition">Contact Us</a>
+                            <a href="privacy.html" class="hover:text-blue-400">Privacy Policy</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Legal</h4>
+                        <div class="flex flex-col gap-3 text-sm text-slate-400">
+                            <a href="terms.html" class="hover:text-blue-400 font-medium">Terms & Conditions</a>
+                            <!-- <a href="#" class="hover:text-blue-400">Refund Policy</a> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <p class="text-white font-bold mb-4 text-lg">Start your SSB journey today</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN" target="_blank" 
+                       class="inline-flex items-center gap-3 bg-gradient-to-r from-slate-800 to-slate-900 hover:from-blue-900 hover:to-blue-800 text-white px-6 py-4 rounded-xl border border-slate-700 transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20">
+                        <i class="fa-brands fa-google-play text-2xl"></i>
+                        <div class="text-left">
+                            <div class="text-xs uppercase text-slate-400">Available on</div>
+                            <div class="text-sm font-bold">Google Play</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-slate-800/50 text-center text-slate-500 text-sm">
+                <p>&copy; 2026 AI SSB. All rights reserved. Dedicated to the future officers of India.</p>
+                <p class="mt-2 text-xs">This app is not officially associated with the Indian Armed Forces.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Terms navigation highlighting
+        const sections = document.querySelectorAll('.terms-section');
+        const navLinks = document.querySelectorAll('.terms-nav-link');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '-100px 0px -50% 0px',
+            threshold: 0
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active', 'text-blue-400');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active', 'text-blue-400');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.terms-nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 120,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active state
+                    navLinks.forEach(link => link.classList.remove('active', 'text-blue-400'));
+                    this.classList.add('active', 'text-blue-400');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

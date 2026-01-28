@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - AI SSB | Your Digital SSB Mentor</title>
+    
+    <link rel="icon" type="image/png" href="https://pub-8a052b298633493fb45a7a462812b1f6.r2.dev/ai%20ssb%20image%20of%20icon.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        defense: {
+                            dark: '#0a0f1f',
+                            darker: '#050914',
+                            light: '#1a223f',
+                            accent: '#3b82f6',
+                            glow: '#60a5fa',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        
+        .glass-card {
+            background: rgba(26, 34, 63, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-nav {
+            background: rgba(10, 15, 31, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .btn-glow {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s;
+        }
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+        }
+
+        /* Copy Button Styles */
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s;
+        }
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #3b82f6;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0a0f1f; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+            border-radius: 5px;
+        }
+
+        .interactive-bg {
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+        }
+    </style>
+</head>
+<body class="bg-defense-dark text-slate-200 font-inter flex flex-col min-h-screen">
+
+    <nav class="fixed w-full z-50 glass-nav border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-blue-500/30 blur-lg rounded-xl"></div>
+                        <img src="https://pub-8a052b298633493fb45a7a462812b1f6.r2.dev/ai%20ssb%20image%20of%20icon.png" alt="Logo" class="w-10 h-10 rounded-lg shadow-lg shadow-blue-500/30 relative z-10">
+                    </div>
+                    <a href="index.html" class="font-extrabold text-2xl text-white tracking-tight font-orbitron">AI SSB</a>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-sm font-medium hover:text-blue-400 transition">Home</a>
+                    <a href="index.html#features" class="text-sm font-medium hover:text-blue-400 transition">Features</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN" target="_blank" class="btn-glow text-white px-6 py-3 rounded-full text-sm font-bold transition-all">
+                        <i class="fa-solid fa-download mr-2"></i> Download App
+                    </a>
+                </div>
+                
+                <button id="mobile-menu-button" class="md:hidden text-white p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-white/10 mt-2">
+                <div class="flex flex-col gap-4 pt-4">
+                    <a href="index.html" class="text-sm font-medium hover:text-blue-400 transition">Home</a>
+                    <a href="index.html#features" class="text-sm font-medium hover:text-blue-400 transition">Features</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-bold transition shadow-lg shadow-blue-500/30 w-fit">
+                        Download App
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-20 relative interactive-bg flex items-center justify-center">
+        <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+        </div>
+
+        <div class="max-w-3xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl font-black text-white mb-4 font-orbitron">
+                    Need <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Support?</span>
+                </h1>
+                <p class="text-lg text-slate-400">
+                    We are here to help you with any issues or queries.
+                </p>
+            </div>
+
+            <div class="glass-card p-10 md:p-14 rounded-3xl text-center relative overflow-hidden group">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition duration-500"></div>
+                
+                <div class="relative z-10">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-blue-500/30 animate-float">
+                        <i class="fa-solid fa-envelope-open-text text-4xl text-blue-400"></i>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-white mb-4">Email Us Directly</h2>
+                    <p class="text-slate-300 mb-8 max-w-lg mx-auto">
+                        For any support, technical issues, or feedback regarding the AI SSB app, please write to us at:
+                    </p>
+
+                    <div class="bg-slate-900/60 border border-slate-700 rounded-xl p-4 md:p-6 mb-8 flex flex-col md:flex-row items-center justify-between gap-4 max-w-xl mx-auto">
+                        <div class="flex items-center gap-3 overflow-hidden">
+                            <i class="fa-solid fa-at text-slate-500"></i>
+                            <span id="email-text" class="text-blue-300 font-mono text-sm md:text-lg break-all">softtechkingcustomer@gmail.com</span>
+                        </div>
+                        <button onclick="copyEmail()" class="copy-btn text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-2 shrink-0">
+                            <i class="fa-regular fa-copy"></i> <span id="copy-label">Copy</span>
+                        </button>
+                    </div>
+
+                    <a href="mailto:softtechkingcustomer@gmail.com" class="btn-glow inline-flex items-center gap-2 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105">
+                        <i class="fa-solid fa-paper-plane"></i> Send Email Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-defense-darker border-t border-slate-800/50 py-12 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <img src="https://pub-8a052b298633493fb45a7a462812b1f6.r2.dev/ai%20ssb%20image%20of%20icon.png" alt="Logo" class="w-8 h-8 rounded-md grayscale opacity-70">
+                <span class="font-bold text-xl text-slate-400 font-orbitron">AI SSB</span>
+            </div>
+            
+            <p class="text-slate-500 text-sm mb-4">
+                &copy; 2026 AI SSB. All rights reserved. Dedicated to the future officers of India.
+            </p>
+            <div class="flex justify-center gap-6 text-sm text-slate-500">
+                <a href="privacy.html" class="hover:text-blue-400 transition">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-blue-400 transition">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Copy Email Functionality
+        function copyEmail() {
+            const emailText = document.getElementById('email-text').innerText;
+            navigator.clipboard.writeText(emailText).then(() => {
+                const label = document.getElementById('copy-label');
+                const originalText = label.innerText;
+                
+                label.innerText = 'Copied!';
+                const btn = document.querySelector('.copy-btn');
+                btn.classList.add('bg-green-500/20', 'border-green-500/50', 'text-green-300');
+                
+                setTimeout(() => {
+                    label.innerText = originalText;
+                    btn.classList.remove('bg-green-500/20', 'border-green-500/50', 'text-green-300');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
