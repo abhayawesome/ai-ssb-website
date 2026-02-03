@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI SSB | Quick Links</title>
+    
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://pub-8a052b298633493fb45a7a462812b1f6.r2.dev/ai%20ssb%20image%20of%20icon.png"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              orbitron: ["Orbitron", "sans-serif"],
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              defense: {
+                dark: "#0a0f1f",
+                darker: "#050914",
+                light: "#1a223f",
+                accent: "#3b82f6",
+              },
+            },
+            animation: {
+              blob: "blob 10s infinite",
+              float: "float 6s ease-in-out infinite",
+              shimmer: "shimmer 3s infinite",
+            },
+            keyframes: {
+              blob: {
+                "0%": { transform: "translate(0px, 0px) scale(1)" },
+                "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                "100%": { transform: "translate(0px, 0px) scale(1)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              shimmer: {
+                "0%": { backgroundPosition: "-500px 0" },
+                "100%": { backgroundPosition: "500px 0" },
+              },
+            },
+            backgroundImage: {
+              "grid-pattern":
+                "linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Shared Styles */
+      * { font-family: "Inter", sans-serif; }
+      
+      .font-orbitron { font-family: "Orbitron", sans-serif; }
+
+      /* Glass Card for Links */
+      .glass-link {
+        background: rgba(26, 34, 63, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .glass-link:hover {
+        transform: translateY(-5px);
+        border-color: rgba(59, 130, 246, 0.5);
+        background: rgba(30, 41, 75, 0.8);
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+      }
+
+      /* Glow Button (Download App) */
+      .btn-glow {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .btn-glow:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+      }
+
+      .shimmer-effect {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .shimmer-effect::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        animation: shimmer 3s infinite;
+      }
+
+      .profile-glow {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+      }
+      
+      /* Background Grid */
+      .bg-grid {
+        background-size: 40px 40px;
+      }
+    </style>
+  </head>
+  
+  <body class="bg-defense-dark text-slate-200 min-h-screen flex flex-col items-center p-4 overflow-x-hidden overflow-y-auto relative">
+
+    <div class="fixed inset-0 pointer-events-none z-0">
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full mix-blend-screen filter blur-[80px] animate-blob"></div>
+      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full mix-blend-screen filter blur-[60px] animate-blob" style="animation-delay: 2s"></div>
+    </div>
+    
+    <div class="fixed inset-0 pointer-events-none z-0 bg-grid opacity-30"></div>
+
+    <main class="relative z-10 w-full max-w-md mx-auto flex flex-col items-center gap-6 py-6 flex-grow justify-center">
+      
+      <div class="text-center flex flex-col items-center animate-[float_6s_ease-in-out_infinite]">
+        <div class="relative mb-4">
+          <div class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-3xl blur opacity-60"></div>
+          <img
+            src="https://pub-8a052b298633493fb45a7a462812b1f6.r2.dev/ai%20ssb%20image%20of%20icon.png"
+            alt="AI SSB Logo"
+            class="w-24 h-24 rounded-3xl relative z-10 border-2 border-white/10 profile-glow object-cover"
+          />
+        </div>
+        
+        <h1 class="text-3xl font-black text-white font-orbitron tracking-wide mb-2">
+          AI SSB
+        </h1>
+        
+        <p class="text-blue-300 font-medium text-sm px-4 py-1 rounded-full bg-blue-500/10 border border-blue-500/20">
+          Your Digital Defence Mentor
+        </p>
+        
+        <p class="text-slate-400 text-sm mt-3 max-w-xs leading-relaxed">
+         The smarter way to earn your uniform.
+        </p>
+      </div>
+
+      <div class="w-full flex flex-col gap-4 mt-2 px-2">
+        
+        <a
+          href="https://play.google.com/store/apps/details?id=com.newpromax.bookandpen29349&hl=en_IN"
+          target="_blank"
+          class="btn-glow shimmer-effect rounded-2xl p-4 flex items-center justify-between group"
+        >
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-white text-xl">
+              <i class="fa-brands fa-google-play"></i>
+            </div>
+            <div class="text-left">
+              <div class="font-bold text-white text-lg leading-tight">Download App</div>
+              <div class="text-blue-100 text-xs opacity-90">Get AI Feedback Now</div>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right text-white/50 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+
+        <a
+          href="https://t.me/ai_ssb_chat"
+          target="_blank"
+          class="glass-link rounded-2xl p-4 flex items-center justify-between group"
+        >
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-cyan-500/10 text-cyan-400 rounded-xl flex items-center justify-center text-xl border border-cyan-500/20">
+              <i class="fa-brands fa-telegram"></i>
+            </div>
+            <div class="text-left">
+              <div class="font-bold text-white text-lg leading-tight">Join Community</div>
+              <div class="text-slate-400 text-xs">Daily Discussions & Notes</div>
+            </div>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square text-slate-600 group-hover:text-cyan-400 transition-colors"></i>
+        </a>
+
+        <a
+          href="https://www.aissb.in/index.html"
+          class="glass-link rounded-2xl p-4 flex items-center justify-between group"
+        >
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 bg-purple-500/10 text-purple-400 rounded-xl flex items-center justify-center text-xl border border-purple-500/20">
+              <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="text-left">
+              <div class="font-bold text-white text-lg leading-tight">Official Website</div>
+              <div class="text-slate-400 text-xs">Explore Features</div>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right text-slate-600 group-hover:text-purple-400 transition-colors"></i>
+        </a>
+        
+        <div class="flex gap-3 justify-center mt-2">
+            <a href="https://www.instagram.com/ai.ssb/" class="w-12 h-12 glass-link rounded-full flex items-center justify-center text-xl text-pink-500 hover:text-white hover:bg-pink-600 border-none transition-colors">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="w-12 h-12 glass-link rounded-full flex items-center justify-center text-xl text-red-500 hover:text-white hover:bg-red-600 border-none transition-colors">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            <a href="mailto:contact@aissb.in" class="w-12 h-12 glass-link rounded-full flex items-center justify-center text-xl text-blue-400 hover:text-white hover:bg-blue-600 border-none transition-colors">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+
+      </div>
+
+    </main>
+    
+    <footer class="relative z-10 w-full text-center pb-4 pt-2">
+        <p class="text-slate-500 text-xs">© 2026 AI SSB. All Rights Reserved.</p>
+    </footer>
+
+  </body>
+</html>
