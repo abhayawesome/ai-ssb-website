@@ -303,8 +303,10 @@
 
       /* Marquee styling */
       .marquee-track {
-        animation: marquee 60s linear infinite;
-        min-width: 100%;
+        /* Adjust 40s to control speed. Higher = slower */
+        animation: marquee 40s linear infinite;
+        white-space: nowrap;
+        will-change: transform;
       }
 
       @keyframes marquee {
