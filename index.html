@@ -309,10 +309,10 @@
 
       @keyframes marquee {
         0% {
-          transform: translateX(0);
+          transform: translateX(100vw); /* Starts exactly at the right screen edge */
         }
         100% {
-          transform: translateX(-100%);
+          transform: translateX(-100%); /* Slides completely off the left edge */
         }
       }
 
@@ -485,6 +485,20 @@
     </nav>
 
     <div
+      class="absolute top-20 left-0 w-full z-40 bg-slate-900/95 border-b border-cyan-500/20 backdrop-blur-md overflow-hidden shadow-[0_4px_20px_rgba(0,243,255,0.05)] flex items-center"
+    >
+      <div class="py-2.5 marquee-track">
+        <span
+          class="text-cyan-100/90 text-sm font-semibold tracking-wide font-orbitron px-8 uppercase inline-flex items-center"
+        >
+          <i class="fa-solid fa-shield-halved text-cyan-400 mr-3"></i>
+          Disclaimer: Our website and app is intended only for preparation of SSB interview and written exam preparation of NDA, CDS and AFCAT. We are not affiliated with any government entity or organization conducting the exam in any manner.
+        </span>
+      </div>
+    </div>
+
+    
+    <!-- <div
       class="absolute top-20 left-0 w-full z-40 bg-slate-900/95 border-b border-cyan-500/20 backdrop-blur-md overflow-hidden shadow-[0_4px_20px_rgba(0,243,255,0.05)] flex"
     >
       <div class="py-2.5 flex whitespace-nowrap marquee-track shrink-0">
@@ -516,7 +530,7 @@
           Disclaimer: Our website and app is intended only for preparation of SSB interview and written exam preparation of NDA,CDS and AFCAT. We are not affiliated with any government entity or organization conducting the exam in any manner.
         </span>
       </div>
-    </div>
+    </div> -->
 
     <section
       class="relative pt-44 pb-24 lg:pt-56 lg:pb-40 z-10 text-center px-4 interactive-bg"
